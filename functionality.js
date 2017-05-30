@@ -9,24 +9,30 @@ window.onload = function() {
         }
     }
 	document.getElementById('about').onclick = function() {
-    document.getElementById('container').innerHTML = "";
-    document.getElementById('controls').innerHTML = "";
-    document.getElementById('menu').className = 'hiddenmenu';
-    var container = document.getElementById('container');
-    var p = document.createElement('p');
-    p.id = 'abouttheapp';
-    container.appendChild(p);
-    var text = document.createTextNode("This app lets you create, edit and delete notes. All notes are stored in your local storage and hence they will be available even if you restart your browser. Happy organizing!");
-    p.appendChild(text);
+		document.getElementById('container').innerHTML = "";
+		document.getElementById('controls1').innerHTML = "";
+		document.getElementById('output').innerHTML = "";
+		document.getElementById('overall_controls').innerHTML = "";
+		document.getElementById('menu').className = 'hiddenmenu';
+		var container = document.getElementById('container');
+		var p = document.createElement('p');
+		p.id = 'abouttheapp';
+		container.appendChild(p);
+		var text = document.createTextNode("This app lets you create, edit and delete notes. All notes are stored in your local storage and hence they will be available even if you restart your browser. Happy organizing!");
+		p.appendChild(text);
 	}
 	var home = document.getElementById('container').innerHTML;
-	var controls = document.getElementById('controls').innerHTML;
+	var controls1 = document.getElementById('controls1').innerHTML;
+	var output = document.getElementById('output').innerHTML;
+	var overall_controls = document.getElementById('overall_controls').innerHTML;
 	display_saved_note();
 	document.getElementById('home').onclick = function() {
-	document.getElementById('container').innerHTML = home;
-	document.getElementById('controls').innerHTML = controls;
-	document.getElementById('menu').className = 'hiddenmenu';
-	display_saved_note();
+		document.getElementById('container').innerHTML = home;
+		document.getElementById('controls1').innerHTML = controls1;
+		document.getElementById('overall_controls').innerHTML = overall_controls;
+		document.getElementById('output').innerHTML = output;
+		document.getElementById('menu').className = 'hiddenmenu';
+		display_saved_note();
 	}
 }
 function check_web_storage_support() {
@@ -44,7 +50,7 @@ function delete_all() {
 function sort() {
 	
 }
-function delete() {
+function delete_note() {
 	
 }
 function edit() {

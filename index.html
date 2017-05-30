@@ -13,10 +13,10 @@
 				<img id="logoimg" src="logo.png" height="50" width="50" alt="Quick Notes">
 				<img id="appname" src="appname.png" height = "35" width = "120" alt="Quick Notes">
 			</div>
-			<div id="menubutton"><a id="menulink" href="#">Menu</a></div>
+			<div id="menubutton"><a id="menulink" href="pleaseEnableJS.html">Menu</a></div>
             <div id="menu" class="hiddenmenu">
-                <div class="menuitem"><a id="home" href="#">Home</a></div>
-                <div class="menuitem"><a id="about" href="#">About the app</a></div>
+                <div class="menuitem"><a id="home" href="pleaseEnableJS.html">Home</a></div>
+                <div class="menuitem"><a id="about" href="pleaseEnableJS.html">About the app</a></div>
             </div>
             <div class="clear"></div>
         </div>
@@ -24,10 +24,11 @@
 			<div id="container">
 				<textarea id="area" rows="10" cols="50"></textarea>
 			</div>
-			<div id="controls">
+			<div id="controls1">
 				<p>
-					<a href="javascript:save();" class="button">Save</a>
-					<a href="javascript:clear();" class="button">Clear</a>
+					<a id="save" title="Click to save" href="pleaseEnableJS.html" onclick="save();return false;" class="button">Save</a>
+					<a id="clear" title="Click to clear the text area" href="pleaseEnableJS.html" onclick="clear();return false;" class="button">Clear</a>
+					<br />Select Priority : 
 					<select name="priority" id="priority">
 						<option value="high" selected="selected">High</option>
 						<option value="medium">Medium</option>
@@ -36,20 +37,23 @@
 				</p>
 			</div>
 		</div>
-		<div id="controls">
-			<p>
-				<a href="javascript:sort();" class="button">Sort by Priority</a>
-				<a href="javascript:delete_all()" class="button">Delete all notes</a>
-			</p>
+		<div id="overall_controls">
+			<div id="controls2">
+				<p>
+					<a id="sort" title="Click to sort by priority" href="pleaseEnableJS.html" onclick="sort();return false;" class="button">Sort by Priority</a>
+					<a id="delete_all" title="Click to delete all saved notes" href="pleaseEnableJS.html" onclick="delete_all(); return false;" class="button">Delete all notes</a>
+				</p>
+			</div>
 		</div>
 		<div id="output">
 			<div id="output_select">
 				<select id="outputNote" size="7"></select>
 			</div>
-			<div id="controls">
+			<div id="controls3">
 				<p>
-					<a href="javascript:delete();" class="button">Delete</a>
-					<a href="javascript:edit()" class="button">Edit</a>
+					<a id="delete_note" title="Click to delete the selected note" href="pleaseEnableJS.html" onclick="delete_note(); return false;" class="button">Delete</a>
+					<a id="edit" title="Click to edit the selected note" href="pleaseEnableJS.html" onclick="edit(); return false;" class="button">Edit</a>
+					<a id="display_note" title="Click to view the selected note" href="pleaseEnableJS.html" onclick="display_saved_note(); return false;" class="button">Display</a>
 				</p>
 			</div>
 		</div>

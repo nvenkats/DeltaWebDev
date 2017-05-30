@@ -26,7 +26,7 @@ body {
 	height:100%;
 	width:100%;
 }
-#controls, #container {
+#controls1, #controls2, #controls3, #container {
 	display:inline-block;
 	*display:inline;
 	vertical-align:top;
@@ -101,12 +101,12 @@ body {
         margin-top: 8px;
     }
 }
-#controls {
+#controls1, #controls2, #controls3 {
     margin-left: 10px;
 	width=100%;
 }
 #priority {
-	width: 40%;
+	width: 56%;
     display: inline-block;
     background: -webkit-linear-gradient(top, #a9db80, #96c56f);
     background: -moz-linear-gradient(top, #a9db80, #96c56f);
