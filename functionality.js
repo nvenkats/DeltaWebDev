@@ -56,28 +56,49 @@ function delete_note() {
 function edit() {
 	
 }
+var options = [];
 function display_saved_note() {
     if(check_web_storage_support() == true) {
-        result = localStorage.getItem('note');
+        items = JSON.parse(localStorage.getItem('item'));
     }
-    if(result === null) {
-        result = "No note saved";
-    }
-    document.getElementById('area').value = result;
+    if(items === null) {
+		var y = document.getElementById("outputNote");
+		var option = document.createElement("option");
+		option.text = "No saved notes.";
+		y.add(option); 
+	}
+	var i;
+	for(i=0; i<items.length; i++) {
+		options[i] = items[i].substr(1);
+	}
+	for(i=0; i<options.length; i++) {
+		y = document.getElementById("outputNote");
+		option = document.createElement("option");
+		option.text = options[i];
+		y.add(option);
+	}
 }
+var items = [];
+var i = 0;
 function save() {
     if(check_web_storage_support() == true) {
         var area = document.getElementById("area");
-		var p = document.getElementById("priority").length;
+		var p = document.getElementById("priority").length.toString();
+		var item = p.concat(area.value);
         if(area.value != '') {
-            localStorage.setItem("note", area.value);
-			localStorage.setItem("p", p)
+			items.push(item); 
+			i++;
+			localStorage.setItem("item", JSON.stringify(items));
+			var x = document.getElementById("outputNote");
+			var option = document.createElement("option");
+			option.text = area.value;
+			x.add(option);
         }
         else {
             alert("Nothing to save");
         }
     }
 }
-function clear() {
+function clean() {
     document.getElementById('area').value = "";
 }
