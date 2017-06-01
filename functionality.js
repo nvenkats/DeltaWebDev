@@ -50,10 +50,22 @@ function check_web_storage_support() {
 }
 function delete_all() {
 	var i;
+	
     for(i = document.getElementById("outputNote").options.length - 1 ; i >= 0 ; i--)
     {
         document.getElementById("outputNote").remove(i);
     }
+	for(i = 0; i<items.length; i++) {
+		items.pop();
+
+	}
+	if(items.length !== 1 ) {
+		delete_all();
+	}
+	items.pop();
+	localStorage.setItem("item", JSON.stringify(items));
+
+	display_saved_note();
 }
 function sortNote() {
 	
@@ -90,7 +102,6 @@ function display_saved_note() {
 function saveNote() {
     if(check_web_storage_support() === true) {
 		
-		var items = [];
 		var area = document.getElementById("area");
 		var pr = document.getElementById("priority").value.length.toString();
 		var nt = pr.concat(area.value);
