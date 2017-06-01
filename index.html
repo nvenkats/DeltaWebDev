@@ -25,7 +25,7 @@
 			</div>
 			<div id="controls1">
 				<p>
-					<a id="save" title="Click to save" href="pleaseEnableJS.html" onclick="save();return false;" class="button">Save</a>
+					<a id="saveNote" title="Click to save" href="#" onclick="saveNote();return false;" class="button">Save</a>
 					<a id="clean" title="Click to clear the text area" href="pleaseEnableJS.html" onclick="clean();return false;" class="button">Clear</a>
 					<br />Select Priority : 
 					<select name="priority" id="priority">
@@ -39,25 +39,27 @@
 		<div id="overall_controls">
 			<div id="controls2">
 				<p>
-					<a id="sort" title="Click to sort by priority" href="pleaseEnableJS.html" onclick="sort();return false;" class="button">Sort by Priority</a>
+					<a id="sortNote" title="Click to sort by priority" href="pleaseEnableJS.html" onclick="sortNote();return false;" class="button">Sort by Priority</a>
 					<a id="delete_all" title="Click to delete all saved notes" href="pleaseEnableJS.html" onclick="delete_all(); return false;" class="button">Delete all notes</a>
 				</p>
 			</div>
 		</div>
 		<div id="output">
 			<div id="output_select">
-				<select id="outputNote" size="7"></select>
+				<select id="outputNote" size="7">
+					<option value="" disabled selected hidden>No Saved Notes</option>
+				</select>
 			</div>
 			<div id="controls3">
 				<p>
 					<a id="delete_note" title="Click to delete the selected note" href="pleaseEnableJS.html" onclick="delete_note(); return false;" class="button">Delete</a>
-					<a id="edit" title="Click to edit the selected note" href="pleaseEnableJS.html" onclick="edit(); return false;" class="button">Edit</a>
+					<a id="editNote" title="Click to edit the selected note" href="pleaseEnableJS.html" onclick="editNote(); return false;" class="button">Edit</a>
 					<a id="display_note" title="Click to view the selected note" href="pleaseEnableJS.html" onclick="display_saved_note(); return false;" class="button">Display</a>
 				</p>
 			</div>
 		</div>
         <div class="footer">
-            <p>Made by nvenkats</p>
+            <p id="footer">Made by nvenkats</p>
         </div>
     </body>
 </html>
