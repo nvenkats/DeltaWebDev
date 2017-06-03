@@ -55,12 +55,13 @@ function delete_all() {
     {
         document.getElementById("outputNote").remove(i);
     }
-	for(i = 0; i<items.length; i++) {
-		items.pop();
+	if(items.length !== 1) {
+		for(i = 0; i<items.length; i++) {
+			items.pop();
 
-	}
-	if(items.length !== 1 ) {
+		}
 		delete_all();
+		
 	}
 	items.pop();
 	localStorage.setItem("item", JSON.stringify(items));
@@ -71,10 +72,41 @@ function sortNote() {
 	
 }
 function delete_note() {
-  
+	if(check_web_storage_support() === true) {
+		if(JSON.parse(localStorage.getItem("item"))!== null) { 
+			var x = document.getElementById("outputNote").selectedIndex;
+			document.getElementById("outputNote").remove(x);
+			var a;
+			for(a=x; a<items.length - 1; a++) {
+				items[a] = items[a+1];
+			} 
+			items.pop();
+			localStorage.setItem("item", JSON.stringify(items));
+			display_saved_note();
+		}
+		else {
+			alert("Nothing to delete");
+		}
+	}
 }
 function editNote() {
-	 
+	 if(check_web_storage_support() === true) {
+		if(JSON.parse(localStorage.getItem("item"))!== null) { 
+			items = JSON.parse(localStorage.getItem("item"));
+			var x = document.getElementById("outputNote").selectedIndex;
+			document.getElementById("area").value = document.getElementById("outputNote").value;
+			document.getElementById('saveNote').text = "Save Changes";
+			document.getElementById('saveNote').onclick = function() {
+				delete_note();
+				saveNote();
+			}
+			document.getElementById('saveNote').text = "Save Note";
+
+		}
+		else {
+			alert("Nothing to edit");
+		}
+	}
 }
 function display_saved_note() {
 	
@@ -120,13 +152,13 @@ function saveNote() {
 			else {
 				alert("Nothing to save");
 			}
-		  }
-		  else 
-			{	
+		}
+		else {	
 			  
-				items.push(nt);
-				localStorage.setItem("item", JSON.stringify(items));
-				display_saved_note();         }
+			items.push(nt);
+			localStorage.setItem("item", JSON.stringify(items));
+			display_saved_note();         
+		}
     }
 }
 function clean() {
