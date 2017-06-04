@@ -21,7 +21,7 @@
         </div>
 		<div id="input">
 			<div id="container">
-				<textarea id="area" rows="10" cols="50"></textarea>
+				<textarea id="area" placeholder = "Type your note here, select a priority and click save" rows="10" cols="50"></textarea>
 			</div>
 			<div id="controls1">
 				<p>
@@ -29,9 +29,9 @@
 					<a id="clean" title="Click to clear the text area" href="pleaseEnableJS.html" onclick="clean();return false;" class="button">Clear</a>
 					<br />Select Priority : 
 					<select name="priority" id="priority">
-						<option value="high" selected="selected">High</option>
-						<option value="medium">Medium</option>
-						<option value="low">Low</option>
+						<option value='0' selected="selected">High</option>
+						<option value='1'>Medium</option>
+						<option value='2'>Low</option>
 					</select>
 				</p>
 			</div>

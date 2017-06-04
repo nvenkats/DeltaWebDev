@@ -70,7 +70,42 @@ function delete_all() {
 	clean();
 }
 function sortNote() {
-	
+	if(check_web_storage_support() === true) {
+		if(JSON.parse(localStorage.getItem("item"))!== null) {
+			var p = [];
+			items = JSON.parse(localStorage.getItem("item"));
+			var c = 0;
+			
+			var lo = 0, hi = items.length - 1, mid = 0;
+			var temp = "";
+			while(mid<=hi) {
+				switch(items[mid][0]) {
+					case '0' : {
+						temp = items[mid];
+						items[mid] = items[lo];
+						items[lo] = temp;
+						lo++;
+						mid++;
+						break;
+					}
+					case '1' : {
+						mid++;
+						break;
+					}
+					case '2' : {
+						temp = items[mid];
+						items[mid] = items[hi];
+						items[hi] = temp;
+						hi--;
+						break;
+					}
+				}
+			}
+			
+			localStorage.setItem("item", JSON.stringify(items));
+			display_saved_note();
+		}
+	}
 }
 function delete_note() {
 	if(check_web_storage_support() === true) {
@@ -105,7 +140,6 @@ function editNote() {
 				delete_note();
 				saveNote();
 				document.getElementById('saveNote').innerHTML = state;
-
 			}
 		}
 		else {
@@ -131,8 +165,14 @@ function display_saved_note() {
 			var option1 = document.createElement("option");
 			if(items[j] !== null) option1.text = items[j].substr(1); 
 			y1.add(option1);  
+			switch(items[j][0]) {
+				case '0' : y1.item(j).style.backgroundColor = '#ff6666'; break;
+				case '1' : y1.item(j).style.backgroundColor = '#ffff66'; break;
+				case '2' : y1.item(j).style.backgroundColor = '#66ff99'; break;
+			}
 		}
     }
+	clean();
 	
 }
 
@@ -140,7 +180,7 @@ function saveNote() {
     if(check_web_storage_support() === true) {
 		
 		var area = document.getElementById("area");
-		var pr = document.getElementById("priority").value.length.toString();
+		var pr = document.getElementById("priority").value;
 		var nt = pr.concat(area.value);
 		if(JSON.parse(localStorage.getItem("item")) !== null) {
 			items = JSON.parse(localStorage.getItem("item"));

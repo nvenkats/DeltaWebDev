@@ -46,6 +46,9 @@ body {
     border: 2px solid #96c56f;
     box-shadow: 0px 1px 1px #888888;
 }
+#output {
+    margin: 20px 20px 20px 20px;
+}
 .footer {
     width: 100%;
     background-color: #2e46a5;
@@ -152,7 +155,7 @@ a.button:active {
 }
 #abouttheapp {
     margin: 8px;
-    color: #96c56f;
+    color: #2e46a5;
     font: 16px arial;
     text-align: center;
 }
