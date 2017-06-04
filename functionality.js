@@ -67,6 +67,7 @@ function delete_all() {
 	localStorage.setItem("item", JSON.stringify(items));
 
 	display_saved_note();
+	clean();
 }
 function sortNote() {
 	
@@ -89,19 +90,23 @@ function delete_note() {
 		}
 	}
 }
+function deleteClean() {
+	delete_note();
+	clean();
+}
 function editNote() {
 	 if(check_web_storage_support() === true) {
 		if(JSON.parse(localStorage.getItem("item"))!== null) { 
 			items = JSON.parse(localStorage.getItem("item"));
-			var x = document.getElementById("outputNote").selectedIndex;
 			document.getElementById("area").value = document.getElementById("outputNote").value;
+			var state = document.getElementById('saveNote').innerHTML;
 			document.getElementById('saveNote').text = "Save Changes";
 			document.getElementById('saveNote').onclick = function() {
 				delete_note();
 				saveNote();
-			}
-			document.getElementById('saveNote').text = "Save Note";
+				document.getElementById('saveNote').innerHTML = state;
 
+			}
 		}
 		else {
 			alert("Nothing to edit");
@@ -124,7 +129,7 @@ function display_saved_note() {
 		for(j=0; j<items.length; j++) {
 			var y1 = document.getElementById("outputNote");
 			var option1 = document.createElement("option");
-			option1.text = items[j].substr(1); 
+			if(items[j] !== null) option1.text = items[j].substr(1); 
 			y1.add(option1);  
 		}
     }
