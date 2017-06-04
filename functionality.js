@@ -172,10 +172,12 @@ function display_saved_note() {
 			}
 		}
     }
-	clean();
 	
 }
-
+function save() {
+	saveNote();
+	clean();
+}
 function saveNote() {
     if(check_web_storage_support() === true) {
 		
