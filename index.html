@@ -21,12 +21,17 @@
         </div>
 		<div id="input">
 			<div id="container">
-				<textarea id="area" placeholder = "Type your note here, select a priority and click save" rows="10" cols="50"></textarea>
+				<textarea id="area" autofocus placeholder = "Type your note here, select a priority and click save" rows="10" cols="50"></textarea>
 			</div>
 			<div id="controls1">
 				<p>
-					<a id="saveNote" title="Click to save" href="" onclick="save();return false;" class="button">Save Note</a>
-					<a id="clean" title="Click to clear the text area" href="pleaseEnableJS.html" onclick="clean();return false;" class="button">Clear</a>
+					<a id="saveNote" title="Click to save" href="" onclick="save();return false;">
+						<img id="saveImg" src="add.png" height="50" width="50" alt="Save">
+					</a>
+					<br />
+					<a id="clean" title="Click to clear the text area" href="pleaseEnableJS.html" onclick="clean();return false;">
+						<img id="clearImg" src="clear.png" height="50" width="50" alt="Clear">
+					</a>
 					<br />Select Priority : 
 					<select name="priority" id="priority">
 						<option value='0' selected="selected">High</option>
@@ -37,26 +42,32 @@
 			</div>
 		</div>
 		<div id="overall_controls">
+			<div id="output">
+				<div id="output_select">
+				<p>Your saved notes:</p>
+					<select required id="outputNote" size="7">
+						<option value="" disabled selected>No Saved Notes</option>
+					</select>
+				</div>
+			</div>
 			<div id="controls2">
 				<p>
-					<a id="sortNote" title="Click to sort by priority" href="pleaseEnableJS.html" onclick="sortNote();return false;" class="button">Sort by Priority</a>
-					<a id="delete_all" title="Click to delete all saved notes" href="pleaseEnableJS.html" onclick="delete_all(); return false;" class="button">Delete all notes</a>
+					<a id="sortNote" title="Click to sort by priority" href="pleaseEnableJS.html" onclick="sortNote();return false;">
+						<img id="sortImg" src="sort.png" height="50" width="50" alt="Sort">
+					</a>
+					<a id="delete_all" title="Click to delete all saved notes" href="pleaseEnableJS.html" onclick="delete_all(); return false;">
+						<img id="deleteAllImg" src="delete_all.png" height="50" width="50" alt="Delete All">
+					</a>
+					<a id="delete_note" title="Click to delete the selected note" href="pleaseEnableJS.html" onclick="deleteClean(); return false;">
+						<img id="deleteNoteImg" src="delete.png" height="50" width="50" alt="Delete Note">
+					</a>
+					<a id="editNote" title="Click to edit or view the selected note" href="pleaseEnableJS.html" onclick="editNote(); return false;">
+						<img id="editImg" src="edit.png" height="50" width="50" alt="Edit">
+					</a>
 				</p>
 			</div>
 		</div>
-		<div id="output">
-			<div id="output_select">
-				<select required id="outputNote" size="7">
-					<option value="" disabled selected>No Saved Notes</option>
-				</select>
-			</div>
-			<div id="controls3">
-				<p>
-					<a id="delete_note" title="Click to delete the selected note" href="pleaseEnableJS.html" onclick="deleteClean(); return false;" class="button">Delete</a>
-					<a id="editNote" title="Click to edit or view the selected note" href="pleaseEnableJS.html" onclick="editNote(); return false;" class="button">Edit</a>
-				</p>
-			</div>
-		</div>
+		
         <div class="footer">
             <p id="footer">Made by nvenkats</p>
         </div>

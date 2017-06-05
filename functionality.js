@@ -135,7 +135,7 @@ function editNote() {
 			items = JSON.parse(localStorage.getItem("item"));
 			document.getElementById("area").value = document.getElementById("outputNote").value;
 			var state = document.getElementById('saveNote').innerHTML;
-			document.getElementById('saveNote').text = "Save Changes";
+			document.getElementById('saveNote').title = "Save Changes";
 			document.getElementById('saveNote').onclick = function() {
 				delete_note();
 				saveNote();
