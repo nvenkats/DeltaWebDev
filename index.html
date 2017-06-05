@@ -10,8 +10,10 @@
     <body>
         <div id="header">
             <div id="name">
-				<img id="logoimg" src="logo.png" height="50" width="50" alt="Quick Notes">
-				<img id="appname" src="appname.png" height = "35" width = "120" alt="Quick Notes">
+				<a id="reload" href= "" onclick="reloading(); return false;">
+					<img id="logoimg" src="logo.png" height="50" width="50" alt="Quick Notes">
+					<img id="appname" src="appname.png" height = "35" width = "120" alt="Quick Notes">
+				</a>
 			</div>
 			<div id="menubutton"><a id="menulink" href="#">Menu</a></div>
             <div id="menu" class="hiddenmenu">
@@ -25,7 +27,7 @@
 			</div>
 			<div id="controls1">
 				<p>
-					<a id="saveNote" title="Click to save" href="" onclick="save();return false;">
+					<a id="saveNote" title="Click to add" href="" onclick="save();return false;">
 						<img id="saveImg" src="add.png" height="50" width="50" alt="Save">
 					</a>
 					<br />

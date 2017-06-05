@@ -21,6 +21,82 @@ window.onload = function() {
 		container.appendChild(p);
 		var text = document.createTextNode("This app lets you create, edit and delete notes. All notes are stored in your local storage and hence they will be available even if you restart your browser. Happy organizing!");
 		p.appendChild(text);
+		var linebreak = document.createElement("br");
+		p.appendChild(linebreak);
+		linebreak = document.createElement("br");
+		p.appendChild(linebreak);
+		linebreak = document.createElement("br");
+		p.appendChild(linebreak);
+		
+		text= document.createTextNode("Credits to all icons used :");
+		p.appendChild(text);
+		linebreak = document.createElement("br");
+		p.appendChild(linebreak);
+		linebreak = document.createElement("br");
+		p.appendChild(linebreak);
+		
+		var a = document.createElement('a');
+		p.appendChild(a);
+		text = document.createTextNode("Save Icon Credits\n");
+		a.appendChild(text);
+		a.title="Credits to save icon";
+		a.href = "https://icons8.com/icon/42946/Save-as";
+		linebreak = document.createElement("br");
+		p.appendChild(linebreak);
+		
+		var a1 = document.createElement('a');
+		p.appendChild(a1);
+		text = document.createTextNode("Add Icon Credits\n");
+		a1.appendChild(text);
+		a1.title="Credits to add icon";
+		a1.href = "https://icons8.com/icon/42878/Add-List";
+		linebreak = document.createElement("br");
+		p.appendChild(linebreak);
+		
+		var a2 = document.createElement('a');
+		p.appendChild(a2);
+		text = document.createTextNode("Clear Icon Credits\n");
+		a2.appendChild(text);
+		a2.title="Credits to clear icon";
+		a2.href = "https://icons8.com/icon/43134/Broom";
+		linebreak = document.createElement("br");
+		p.appendChild(linebreak);
+		
+		var a3 = document.createElement('a');
+		p.appendChild(a3);
+		text = document.createTextNode("Sort Icon Credits\n");
+		a3.appendChild(text);
+		a3.title="Credits to sort icon";
+		a3.href = "https://icons8.com/icon/43194/Sort-Down";
+		linebreak = document.createElement("br");
+		p.appendChild(linebreak);
+		
+		var a4 = document.createElement('a');
+		p.appendChild(a4);
+		text = document.createTextNode("Delete All Icon Credits\n");
+		a4.appendChild(text);
+		a4.title="Credits to delete all icon";
+		a4.href = "https://icons8.com/icon/21071/Delete";
+		linebreak = document.createElement("br");
+		p.appendChild(linebreak);
+		
+		var a5 = document.createElement('a');
+		p.appendChild(a5);
+		text = document.createTextNode("Delete Icon Credits\n");
+		a5.appendChild(text);
+		a5.title="Credits to delete icon";
+		a5.href = "https://icons8.com/icon/46461/Delete-Property";
+		linebreak = document.createElement("br");
+		p.appendChild(linebreak);	
+
+		var a6 = document.createElement('a');
+		p.appendChild(a6);
+		text = document.createTextNode("Edit Icon Credits\n");
+		a6.appendChild(text);
+		a6.title="Credits to edit icon";
+		a6.href = "https://icons8.com/icon/43156/Edit-Property";
+		linebreak = document.createElement("br");
+		p.appendChild(linebreak);
 	}
 	
 	var home = document.getElementById('container').innerHTML;
@@ -47,6 +123,9 @@ function check_web_storage_support() {
         alert("Web storage unsupported!");
         return(false);
     }
+}
+function reloading() {
+	window.location.reload(false); 
 }
 function delete_all() {
 	var i;
@@ -136,6 +215,7 @@ function editNote() {
 			document.getElementById("area").value = document.getElementById("outputNote").value;
 			var state = document.getElementById('saveNote').innerHTML;
 			document.getElementById('saveNote').title = "Save Changes";
+			document.getElementById('saveImg').src = "save.png";
 			document.getElementById('saveNote').onclick = function() {
 				delete_note();
 				saveNote();
